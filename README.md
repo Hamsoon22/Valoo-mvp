@@ -21,8 +21,8 @@
 ## 🔧 설치 및 실행
 
 ```bash
-git clone 
-cd valoo
+git clone https://github.com/Hamsoon22/Valoo-mvp.git
+cd Valoo-mvp
 npm install
 npm start
 
