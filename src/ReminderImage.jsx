@@ -1,80 +1,121 @@
-import React, { useState } from "react";
+// ReminderImage.jsx
+import React, { useEffect, useState } from "react";
+import { useNavigate, useLocation } from "react-router-dom";
+import Header from "./Header";
+import HamburgerMenu from "./HamburgerMenu";
+import CheckCircleIcon from "@mui/icons-material/CheckCircle";
+import CircularProgress from "@mui/material/CircularProgress";
 
-function ReminderImage({ onBack }) {
-  const [inputText, setInputText] = useState("");
-  const [imageUrl, setImageUrl] = useState("");
-  const [isLoading, setIsLoading] = useState(false);
+export default function ReminderImage() {
+  const navigate = useNavigate();
+  const location = useLocation();
+  const { name = "사용자", worries = [] } = location.state || {};
+  const [menuOpen, setMenuOpen] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
+  const [quote, setQuote] = useState("");
+  const [error, setError] = useState(false);
 
-  const handleGenerate = async () => {
-    if (!inputText.trim()) return;
-    setIsLoading(true);
+  useEffect(() => {
+    const fetchQuote = async () => {
+      try {
+        const res = await fetch("http://localhost:3001/api/reminder-quote", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ worries }),
+        });
 
-    try {
-      // 예시용 placeholder 이미지 생성 로직
-      const fakeImageUrl = `https://via.placeholder.com/512x300.png?text=${encodeURIComponent(inputText)}`;
-      setTimeout(() => {
-        setImageUrl(fakeImageUrl);
+        if (!res.ok) throw new Error("API 요청 실패");
+
+        const data = await res.json();
+        setQuote(data.quote);
+      } catch (err) {
+        setError(true);
+        setQuote("AI 문구를 생성할 수 없습니다. 다시 시도해 주세요.");
+      } finally {
         setIsLoading(false);
-      }, 1000);
-    } catch (err) {
-      console.error("이미지 생성 실패", err);
-      setIsLoading(false);
-    }
-  };
+      }
+    };
+
+    fetchQuote();
+  }, [worries]);
 
   return (
-    <div style={{ padding: "2rem", maxWidth: "700px", margin: "0 auto", textAlign: "center" }}>
-      <h2>나만의 가치 리마인드 이미지 만들기</h2>
-      <textarea
-        rows={3}
-        value={inputText}
-        onChange={(e) => setInputText(e.target.value)}
-        placeholder="예: 나는 자연과 함께 살아가고 싶다"
-        style={{ width: "100%", padding: "1rem", fontSize: "1rem", marginBottom: "1rem" }}
-      />
+    <div style={{ backgroundColor: "#F8FCFF", minHeight: "100vh" }}>
+      <Header title="리마인드 글&이미지" setMenuOpen={setMenuOpen} />
+      <HamburgerMenu open={menuOpen} onClose={() => setMenuOpen(false)} navigate={navigate} />
 
-      <div>
-        <button
-          onClick={handleGenerate}
-          disabled={isLoading || !inputText.trim()}
-          style={{
-            padding: "0.7rem 1.5rem",
-            fontSize: "1rem",
-            backgroundColor: "#28a745",
-            color: "#fff",
-            border: "none",
-            borderRadius: "6px",
-            cursor: isLoading ? "not-allowed" : "pointer",
-            marginRight: "1rem"
-          }}
-        >
-          {isLoading ? "이미지 생성 중..." : "이미지 만들기"}
-        </button>
+      <div style={{ padding: "1.5rem", maxWidth: 500, margin: "0 auto" }}>
+        {isLoading ? (
+          <>
+            <p style={{ textAlign: "center", fontWeight: "bold" }}>
+              <span style={{ color: "#008BDB" }}>‘{name}’</span>님 오늘 내용을 오래 기억하기 위해<br />
+              글과 이미지를 만들어드릴게요.
+            </p>
 
-        <button
-          onClick={onBack}
-          style={{
-            padding: "0.7rem 1.5rem",
-            fontSize: "1rem",
-            backgroundColor: "#ccc",
-            color: "#000",
-            border: "none",
-            borderRadius: "6px",
-            cursor: "pointer"
-          }}
-        >
-          ← 이전
-        </button>
+            <div style={{ textAlign: "center", marginTop: "3rem" }}>
+              <CircularProgress size={64} style={{ color: "#00AEEF" }} />
+              <p style={{ marginTop: "1rem", color: "#008BDB", fontWeight: "bold" }}>... 글 생성중 ...</p>
+            </div>
+
+            <div style={{
+              marginTop: "2rem",
+              padding: "1.5rem 1rem",
+              borderRadius: "1rem",
+              backgroundColor: "#E6F3FC",
+              color: "#005B82",
+              textAlign: "center",
+              fontWeight: 500,
+              lineHeight: 1.6
+            }}>
+              앞으로 5년 후,
+              당신이 원하는 삶을 살 수 있다면
+              어떤 삶을 살게 될까요?
+            </div>
+          </>
+        ) : (
+          <>
+            <p style={{ textAlign: "center", fontWeight: "bold" }}>
+              폰 배경화면으로 사용할 수 있게 <br />
+              <span style={{ color: "#008BDB" }}>이미지 저장</span>을 할 수 있어요.
+            </p>
+
+            <div style={{ textAlign: "center", marginTop: "2.5rem" }}>
+              <CheckCircleIcon style={{ fontSize: 60, color: "#00AEEF" }} />
+              <p style={{ color: "#00AEEF", fontWeight: "bold", marginTop: "0.5rem" }}>... 글 생성 완료 ...</p>
+            </div>
+
+            <div style={{
+              marginTop: "2rem",
+              padding: "1.5rem 1rem",
+              borderRadius: "1rem",
+              backgroundColor: "#E6F3FC",
+              color: "#005B82",
+              textAlign: "center",
+              fontWeight: 500,
+              lineHeight: 1.6
+            }}>
+              {quote || "AI 문구를 생성할 수 없습니다. 다시 시도해 주세요."}
+            </div>
+
+            <button
+              onClick={() => navigate("/remindertext")}
+              style={{
+                marginTop: "2rem",
+                width: "100%",
+                padding: "1rem",
+                backgroundColor: "#00AEEF",
+                color: "white",
+                fontWeight: "bold",
+                fontSize: "1.1rem",
+                border: "none",
+                borderRadius: "0.75rem"
+              }}
+            >
+              리마인드 글 보기
+            </button>
+          </>
+        )}
       </div>
-
-      {imageUrl && (
-        <div style={{ marginTop: "2rem" }}>
-          <img src={imageUrl} alt="리마인드 이미지" style={{ maxWidth: "100%", borderRadius: "12px" }} />
-          <p style={{ marginTop: "1rem", color: "#555" }}>이미지를 저장하거나 배경화면으로 사용해보세요!</p>
-        </div>
-      )}
     </div>
   );
 }
-
-export default ReminderImage;
