@@ -33,7 +33,7 @@ function NextStepChoicePage() {
 
       {/* 선택지 카드 */}
       <div
-        onClick={() => handleSelect("/valueintro")}
+        onClick={() => handleSelect("/journal")}
         style={{
           border: "1px solid #ccc",
           borderRadius: "12px",
@@ -52,7 +52,7 @@ function NextStepChoicePage() {
       </div>
 
       <div
-        onClick={() => handleSelect("/whatif")}
+        onClick={() => handleSelect("/magicwand")}
         style={{
           border: "2px solid #00A6E9",
           backgroundColor: "#f0faff",
