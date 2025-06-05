@@ -24,6 +24,7 @@ npm install
 npm start
 
 👤 제작자
-Designed & Developed by [Yeun Kim]
+Designed by team [Ewha Womens Uni]
+Developed by [Yeun Kim]
 
 Contact: [yeunkim1230@gmail.com]

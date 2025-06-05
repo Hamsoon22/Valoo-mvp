@@ -15,6 +15,7 @@ import SurveyFlow from "./SurveyFlow"; // ← 기존 step 방식은 별도로 �
 import ResultPage from "./ResultPage";
 import MagicWandSplash from "./MagicWandSplash";
 import MagicWandDescribe from "./MagicWandDescribe";
+import ActionAdvice from "./ActionAdvice";
 
 function App() {
   return (
@@ -33,6 +34,7 @@ function App() {
         <Route path="/magicwand" element={<MagicWandPage />} />
         <Route path="/magicwandsplash" element={<MagicWandSplash />} />
         <Route path="/magicwandescribe" element={<MagicWandDescribe />} />
+        <Route path="/actionadvice" element={<ActionAdvice />} />
         <Route path="/survey" element={<SurveyFlow />} /> {/* ← 이 안에 step 로직 넣기 */}
       </Routes>
     </BrowserRouter>
