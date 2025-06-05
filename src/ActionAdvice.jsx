@@ -54,7 +54,7 @@ export default function ActionAdvice() {
 
         <div style={{ textAlign: "center", marginTop: "2rem" }}>
           <button
-            onClick={() => navigate("/reminder")}
+            onClick={() => navigate("/reminderintro")}
             style={{
               backgroundColor: "#00AEEF",
               color: "white",

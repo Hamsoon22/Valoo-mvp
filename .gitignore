@@ -1,5 +1,6 @@
 # dependencies
-/node_modules
+- /node_modules
++ node_modules/
 
 # production build
 /build
@@ -27,3 +28,4 @@ yarn-error.log*
 
 # OS
 Thumbs.db
+node_modules
