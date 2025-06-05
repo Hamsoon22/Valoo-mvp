@@ -11,9 +11,9 @@ const menuItems = [
       { text: "정보 입력", path: "/modeselection" },
       { text: "내 삶 방향찾기", path: "/valueintro" },
       { text: "일기 쓰기", path: "/journal/write" },
-      { text: "만약에 질문", path: "/whatif" },
-      { text: "앞으로의 행동 추천", path: "/actionplan" },
-      { text: "리마인드 글&이미지", path: "/reminder" }
+      { text: "만약에 질문", path: "/magicwand" },
+      { text: "앞으로의 행동 추천", path: "/actionadvice" },
+      { text: "리마인드 글&이미지", path: "/reminderintro" }
     ]
   },
   {
