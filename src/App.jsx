@@ -16,6 +16,8 @@ import ResultPage from "./ResultPage";
 import MagicWandSplash from "./MagicWandSplash";
 import MagicWandDescribe from "./MagicWandDescribe";
 import ActionAdvice from "./ActionAdvice";
+import ReminderIntro from "./ReminderIntro";
+import ReminderImage from "./ReminderImage";
 
 function App() {
   return (
@@ -35,6 +37,8 @@ function App() {
         <Route path="/magicwandsplash" element={<MagicWandSplash />} />
         <Route path="/magicwandescribe" element={<MagicWandDescribe />} />
         <Route path="/actionadvice" element={<ActionAdvice />} />
+        <Route path="/reminderintro" element={<ReminderIntro />} />
+        <Route path="/reminderimage" element={<ReminderImage />} />
         <Route path="/survey" element={<SurveyFlow />} /> {/* ← 이 안에 step 로직 넣기 */}
       </Routes>
     </BrowserRouter>
