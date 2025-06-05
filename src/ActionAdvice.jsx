@@ -1,5 +1,4 @@
-// ActionAdvice.jsx
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import Header from "./Header";
 import HamburgerMenu from "./HamburgerMenu";
@@ -7,8 +6,32 @@ import HamburgerMenu from "./HamburgerMenu";
 export default function ActionAdvice() {
   const location = useLocation();
   const navigate = useNavigate();
-  const { name = "사용자", worries = [] } = location.state || {};
+  const { name = "사용자", worries = [], input = "" } = location.state || {};
   const [menuOpen, setMenuOpen] = useState(false);
+  const [advice, setAdvice] = useState(null);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const getAdvice = async () => {
+      try {
+        const response = await fetch("http://localhost:3001/api/action-advice", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ worries, input })
+        });
+
+        const data = await response.json();
+        setAdvice(data.advice);
+      } catch (error) {
+        console.error("Error fetching advice:", error);
+        setAdvice("추천을 가져오는 데 실패했습니다.");
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    getAdvice();
+  }, [worries, input]);
 
   return (
     <div style={{ backgroundColor: "#fff", minHeight: "100vh" }}>
@@ -26,31 +49,24 @@ export default function ActionAdvice() {
           우리 작은 것부터 해볼까요?
         </h3>
 
-        {worries.length === 0 && (
-          <p style={{ textAlign: "center", color: "#AAA", marginTop: "2rem" }}>
-            선택된 고민이 없습니다. 😢
-          </p>
-        )}
-
-        {worries.map((worry, index) => (
-          <div key={index} style={{ marginTop: "2rem" }}>
-            <p style={{ textAlign: "center", color: "#666", fontSize: "0.9rem" }}>... {worry}과 관련된 행동 ...</p>
-            <div
-              style={{
-                marginTop: "0.5rem",
-                padding: "1rem",
-                backgroundColor: "#F9FAFB",
-                borderRadius: "1rem",
-                border: "1px solid #eee",
-                textAlign: "center"
-              }}
-            >
-              <p style={{ fontWeight: "bold", fontSize: "0.95rem", marginBottom: "0.5rem" }}>
-                여기에 '{worry}' 관련 추천이 들어갑니다 (아직 준비 중)
-              </p>
-            </div>
+        {loading ? (
+          <p style={{ textAlign: "center", marginTop: "2rem", color: "#999" }}>로딩 중...</p>
+        ) : (
+          <div
+            style={{
+              marginTop: "1.5rem",
+              padding: "1rem",
+              backgroundColor: "#F9FAFB",
+              borderRadius: "1rem",
+              border: "1px solid #eee",
+              textAlign: "center"
+            }}
+          >
+            <p style={{ fontWeight: "bold", fontSize: "0.95rem", marginBottom: "0.5rem" }}>
+              {advice}
+            </p>
           </div>
-        ))}
+        )}
 
         <div style={{ textAlign: "center", marginTop: "2rem" }}>
           <button
