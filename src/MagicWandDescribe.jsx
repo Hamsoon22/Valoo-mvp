@@ -145,7 +145,7 @@ export default function MagicWandDescribe() {
 
         <button
           onClick={() =>
-            navigate("/magicwand/actionadvice", {
+            navigate("/actionadvice", {
               state: { name, worries, input }
             })
           }
