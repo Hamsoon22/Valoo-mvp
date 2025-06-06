@@ -253,9 +253,8 @@ useEffect(() => {
   </div>
 )}
         <div style={{ textAlign: "center", marginTop: "2rem" }}>
-        <button
-            type="button" // 꼭 추가!
-            onClick={() => navigate("/reminder")}
+          <button
+            onClick={() => navigate("/reminderintro")}
             style={{
               backgroundColor: "#00AEEF",
               color: "white",
