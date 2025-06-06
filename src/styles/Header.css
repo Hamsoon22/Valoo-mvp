@@ -1,0 +1,53 @@
+/* Header 컴포넌트 전용 스타일 */
+
+.header-root {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0rem 1.5rem;
+  background: #ffffff00;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+  position: relative;
+  z-index: 10;
+}
+
+.header-title {
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: #00A3D9;
+}
+
+.header-logo {
+  height: 32px;
+  width: auto;
+}
+
+.header-menu-btn {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: #333;
+  padding: 0;
+}
+
+.common-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+}
+
+.common-step-title {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+/* 공통 컨테이너 레이아웃 */
+.common-root {
+  padding: 1.5rem;
+  max-width: 500px;
+  margin: 0 auto;
+  position: relative;
+}

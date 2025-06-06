@@ -1,0 +1,94 @@
+/* ConsentPage 전용 스타일 */
+
+.consent-root {
+  height: 100vh;
+  background-color: #000;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.consent-bottomsheet {
+  background-color: #fff;
+  border-top-left-radius: 1rem;
+  border-top-right-radius: 1rem;
+  padding: 1.5rem;
+  box-sizing: border-box;
+}
+
+.consent-title {
+  margin-bottom: 0.5rem;
+}
+
+.consent-desc {
+  font-size: 0.9rem;
+  color: #555;
+  margin-bottom: 1.5rem;
+  line-height: 1.5;
+}
+
+.consent-checkbox {
+  display: flex;
+  align-items: left;
+  margin: 1rem 0;
+}
+
+.consent-checkbox input[type="checkbox"] {
+  width: 1.4em;
+  height: 1.4em;
+  accent-color: #00A3D9;
+  margin-right: 0.5em;
+}
+
+.consent-view-btn {
+  font-size: 0.9rem;
+  color: #0097D8;
+  margin-left: 0.5rem;
+  cursor: pointer;
+}
+
+.consent-hr {
+  border: none;
+  border-top: 1px solid #eee;
+  margin: 1rem 0;
+}
+
+.consent-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: #fff;
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+}
+
+.consent-modal-header {
+  padding: 1rem;
+  border-bottom: 1px solid #eee;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.consent-modal-title {
+  margin: 0;
+}
+
+.consent-modal-close {
+  font-size: 1.2rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.consent-modal-content {
+  padding: 1rem;
+  overflow-y: auto;
+  flex: 1;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  white-space: pre-wrap;
+}

@@ -1,0 +1,99 @@
+.magicwand-desc-root {
+  background-color: #fff;
+  min-height: 100vh;
+}
+
+.magicwand-desc-content {
+  padding: 0rem 1.5rem 1.5rem 1.5rem;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.magicwand-desc-title {
+  text-align: center;
+  font-weight: bold;
+}
+
+.magicwand-desc-worries {
+  text-align: center;
+  color: #008BDB;
+  font-weight: bold;
+}
+
+.magicwand-desc-noworry {
+  text-align: center;
+  color: #999;
+  font-weight: bold;
+}
+
+.magicwand-desc-worrylist {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  margin-top: 1rem;
+  flex-wrap: wrap;
+}
+
+.magicwand-desc-worryitem {
+  border: 2px solid #00AAFF;
+  border-radius: 1rem;
+  padding: 0.75rem;
+  width: 120px;
+  text-align: center;
+  background-color: #F7FCFF;
+}
+
+.magicwand-desc-worryicon {
+  width: 48px;
+  height: 48px;
+  margin-bottom: 0.5rem;
+}
+
+.magicwand-desc-worrylabel {
+  margin: 0;
+  color: #00AAFF;
+  font-weight: bold;
+  font-size: 0.95rem;
+}
+
+.magicwand-desc-inputwrap {
+  margin-top: 2rem;
+}
+
+.magicwand-desc-inputlabel {
+  font-weight: bold;
+  padding-top: 0.5rem;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.magicwand-desc-textarea {
+  width: 100%;
+  height: 300px;
+  padding: 1rem;
+  border-radius: 1rem;
+  border: 1px solid #ccc;
+  font-size: 0.95rem;
+  font-family: inherit;
+  resize: none;
+}
+
+.magicwand-desc-count {
+  text-align: right;
+  color: #999;
+  font-size: 0.85rem;
+  margin-top: 0.25rem;
+}
+
+.magicwand-desc-recommend {
+  position: fixed;
+  bottom: 6rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  text-align: center;
+  align-items: center;
+  font-size: 0.9rem;
+  color: #444;
+}
+

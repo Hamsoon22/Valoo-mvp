@@ -1,0 +1,127 @@
+.result-root {
+  background-color: #fff;
+  min-height: 100vh;
+  font-family: sans-serif;
+}
+
+.result-title-box {
+  background-color: #f0f9ff;
+  border: 1px solid #cce9ff;
+  color: #1292EE;
+  border-radius: 16px;
+  padding: 0.8rem;
+  font-weight: bold;
+  text-align: center;
+  margin: 0 1.5rem 1.5rem 1.5rem;
+  max-width: 500px;
+
+}
+
+.result-content {
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 0 1.2rem;
+}
+
+.result-score-box {
+  background-color: #f9f9f9;
+  padding: 1.5rem;
+  margin-top: 2rem;
+  border-radius: 16px;
+  text-align: center;
+  box-shadow: 0 0 10px rgba(0,0,0,0.04);
+}
+
+.result-score-title {
+  color: #1292EE;
+  margin-bottom: 0.5rem;
+  font-size: 1.1rem;
+  font-weight: bold;
+}
+
+.result-score-value {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #000000;
+  background-color: #fff;
+  display: inline-block;
+  padding: 0.5rem 1rem 0.2rem 1rem ;
+  border-radius: 12px;
+  border: 1px solid #e0e0e0;
+  margin-bottom: 1rem;
+}
+
+.result-score-desc {
+  font-size: 1rem;
+  color: #333;
+  margin: 0.5rem 0;
+}
+
+.result-score-highlight {
+  color: #1292EE;
+  font-weight: bold;
+}
+
+.result-detail-title {
+  font-weight: 600 !important;
+  font-size: 1rem !important;
+  color: #1292EE !important;
+}
+
+.result-detail-row {
+  margin-bottom: 1.5rem;
+}
+
+.result-detail-label {
+  font-weight: 600 !important;
+  margin-bottom: 0.5rem !important;
+  display: block;
+}
+
+.result-detail-bar-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.3rem;
+}
+
+.result-detail-bar-label {
+  width: 40px;
+  font-size: 0.9rem;
+  color: #555;
+}
+
+.result-detail-bar-bg {
+  height: 10px;
+  border-radius: 8px;
+  flex-grow: 1;
+  margin: 0 10px;
+  position: relative;
+  background-color: rgba(18,146,238,0.25);
+}
+
+.result-detail-bar-bg.commit {
+  background-color: rgba(166,120,255,0.25);
+}
+
+.result-detail-bar-fill {
+  height: 100%;
+  border-radius: 8px;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+.result-detail-bar-fill.value {
+  background-color: #1292EE;
+}
+.result-detail-bar-fill.commit {
+  background-color: #A678FF;
+}
+
+.result-detail-bar-value {
+  font-size: 0.9rem;
+  width: 24px;
+  text-align: right;
+}
+
+

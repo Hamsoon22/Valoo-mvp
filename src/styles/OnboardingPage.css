@@ -1,0 +1,84 @@
+/* OnboardingPage styles */
+
+.onboarding-root {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  font-family: sans-serif;
+  padding: 1.5rem;
+  box-sizing: border-box;
+  overflow: hidden;
+  overflow-x: hidden;
+  background-color: #ffffff00;
+  position: relative;
+}
+
+.onboarding-skip {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  font-size: 0.9rem;
+  color: #666;
+  cursor: pointer;
+  text-decoration-line: underline;
+}
+
+.onboarding-text {
+  text-align: center;
+  margin-top: 2.5rem;
+}
+
+.onboarding-title {
+  font-size: 1.2rem;
+  color: #00A3D9;
+  margin-bottom: 0.8rem;
+}
+
+.onboarding-subtitle {
+  font-size: 0.9rem;
+  color: #383838;
+  white-space: pre-line;
+  line-height: 1.5;
+}
+
+.onboarding-indicator {
+  margin-top: 1rem;
+}
+
+.onboarding-dot {
+  height: 8px;
+  width: 8px;
+  border-radius: 50%;
+  display: inline-block;
+  margin: 0 4px;
+  background-color: #ccc;
+}
+.onboarding-dot.active {
+  background-color: #333;
+}
+
+.onboarding-image-container {
+  flex: 1 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+
+.onboarding-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  max-width: none;
+  max-height: none;
+  object-fit: cover;
+  z-index: -1;
+}
+
+
+

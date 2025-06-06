@@ -1,0 +1,77 @@
+.reminderimage-root {
+  background-color: #F8FCFF;
+  min-height: 100vh;
+}
+
+.reminderimage-content {
+  padding: 0rem 1.5rem 1.5rem 1.5rem;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.reminderimage-title {
+  text-align: center;
+  font-weight: 600;
+  line-height: 1.5;
+}
+
+.reminderimage-blue {
+  color: #008BDB;
+  font-weight: bold;
+}
+
+.reminderimage-loading {
+  text-align: center;
+  margin-top: 3rem;
+}
+
+.reminderimage-progress {
+  color: #00AEEF !important;
+}
+
+.reminderimage-loading-text {
+  margin-top: 1rem;
+  color: #008BDB;
+  font-weight: bold;
+}
+
+.reminderimage-sample {
+  margin-top: 2rem;
+  padding: 1.5rem 1rem;
+  border-radius: 1rem;
+  background-color: #E6F3FC;
+  color: #005B82;
+  text-align: center;
+  font-weight: 500;
+  line-height: 1.6;
+}
+
+.reminderimage-success {
+  text-align: center;
+  margin-top: 2.5rem;
+}
+
+.reminderimage-checkicon {
+  font-size: 60px !important;
+  color: #00AEEF !important;
+}
+
+.reminderimage-success-text {
+  color: #00AEEF;
+  font-weight: bold;
+  margin-top: 0.5rem;
+}
+
+/* cta-button은 공통 스타일 사용 */
+.cta-button {
+  margin-top: 2rem;
+  width: 100%;
+  padding: 1rem;
+  background-color: #00AEEF;
+  color: white;
+  font-weight: bold;
+  font-size: 1.1rem;
+  border: none;
+  border-radius: 0.75rem;
+  cursor: pointer;
+}

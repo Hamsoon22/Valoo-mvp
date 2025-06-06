@@ -1,0 +1,45 @@
+.remindertext-root {
+  background-color: #F5FAFD;
+  min-height: 100vh;
+}
+
+.remindertext-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: calc(100vh - 64px);
+  padding: 0rem 1.5rem 1.5rem 1.5rem;
+  box-sizing: border-box;
+}
+
+.remindertext-quote-box {
+  background-color: #F5FAFD;
+  padding: 0rem 1rem;
+  border-radius: 1rem;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+  width: 100%;
+  text-align: center;
+}
+
+.remindertext-quote {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #00AEEF;
+  white-space: pre-line;
+}
+
+.remindertext-refresh-btn {
+  margin-top: 2rem;
+  background-color: #000;
+  color: #fff;
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 2rem;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+}
+

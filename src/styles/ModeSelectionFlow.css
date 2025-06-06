@@ -1,0 +1,124 @@
+/* ModeSelectionFlow 전용 스타일 */
+
+.mode-root {
+  padding: 1.5rem;
+  max-width: 500px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.mode-progress {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding-bottom: 1.5rem;
+  margin-top: 1.5rem;
+}
+.mode-progress-step {
+  text-align: center;
+  flex: 1;
+}
+.mode-progress-circle {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: #aaa;
+  color: #fff;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 0.85rem;
+  font-weight: bold;
+  margin-bottom: 0.3rem;
+}
+.mode-progress-circle.active {
+  background-color: #000;
+}
+.mode-progress-label {
+  font-weight: normal;
+  color: #999;
+  font-size: 0.95rem;
+  vertical-align: middle;
+}
+.mode-progress-label.active {
+  font-weight: bold;
+  color: #000;
+vertical-align: middle;
+}
+.mode-progress-underline {
+  height: 3px;
+  background-color: #000;
+  margin-top: 0.5rem;
+}
+
+.mode-card {
+  border-radius: 12px;
+  padding: 2rem;
+  margin: 1rem 0;
+  text-align: center;
+  cursor: pointer;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+  transition: all 0.2s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.mode-card.inactive {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+.mode-card.active {
+  border: 2px solid #00A6E9;
+  background-color: #f0faff;
+  color: #00A6E9;
+}
+.mode-card:not(.active) {
+  border: 1px solid #ccc;
+  background-color: #fff;
+  color: #444;
+}
+
+.mode-emotion-card {
+  border-radius: 12px;
+  cursor: pointer;
+  font-weight: bold;
+  text-align: center;
+  padding: 1.5rem;
+  margin: 1rem 0;
+  transition: all 0.2s;
+}
+.mode-emotion-card.active {
+  border: 2px solid #00A6E9;
+  background-color: #f0faff;
+  color: #00A6E9;
+}
+.mode-emotion-card:not(.active) {
+  border: 1px solid #ccc;
+  background-color: #fff;
+  color: #444;
+}
+
+.mode-emotion-label {
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+}
+.mode-emotion-desc {
+  font-size: 0.9rem;
+  color: #686868;
+  margin-top: 4px;
+  line-height: 1.5;
+  letter-spacing: -0.01em;
+  font-weight: 400;
+}
+
+
+
+.mode-desc {
+  font-size: 0.9rem;
+  color: #383838;
+  text-align: center;
+  margin-bottom: 2rem;
+  line-height: 1.5;
+  font-weight: 500;
+}
+
