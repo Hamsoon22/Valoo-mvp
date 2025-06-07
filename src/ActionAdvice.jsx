@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import Header from "./Header";
 import HamburgerMenu from "./HamburgerMenu";
@@ -165,7 +165,13 @@ useEffect(() => {
 
   return (
     <div style={{ backgroundColor: "#fff", minHeight: "100vh" }}>
-      <Header title="앞으로의 행동 추천" setMenuOpen={setMenuOpen} />
+      <div className="common-root">
+      <Header
+        title="앞으로의 행동 추천"
+        onBack={() => navigate(-1)}
+        onMenu={() => setMenuOpen(true)}  // ✅ 이 줄 추가!
+      />
+      </div>
       <HamburgerMenu open={menuOpen} onClose={() => setMenuOpen(false)} navigate={navigate} />
       <div style={{ padding: "1.5rem", maxWidth: 500, margin: "0 auto" }}>
         <p style={{ fontSize: "0.9rem", color: "#888", textAlign: "center" }}>

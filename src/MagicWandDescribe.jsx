@@ -42,73 +42,80 @@ export default function MagicWandDescribe() {
   return (
     <>
       <div className="common-root">
-        <Header
-          title="만약에 질문"
-          setMenuOpen={setMenuOpen}
-          onBack={() => navigate(-1)}
-        />
-        <HamburgerMenu
-          open={menuOpen}
-          onClose={() => setMenuOpen(false)}
-          navigate={navigate}
-        />
-            </div>
-        <div className="magicwand-desc-content">
-          <p className="magicwand-desc-title">‘{name}’님의 고민거리</p>
-
-          {worries.length > 0 ? (
-            <p className="magicwand-desc-worries">
-              ‘{worries.join("’, ‘")}’이 사라졌어요.
-            </p>
-          ) : (
-            <p className="magicwand-desc-noworry">
-              선택한 고민거리가 없어요.
-            </p>
-          )}
-
-          {worries.length > 0 && (
-            <div className="magicwand-desc-worrylist">
-              {worries.map((worry) => (
-                <div key={worry} className="magicwand-desc-worryitem">
-                  {worryMap[worry] && (
-                    <img
-                      src={worryMap[worry]}
-                      alt={worry}
-                      className="magicwand-desc-worryicon"
-                    />
-                  )}
-                  <p className="magicwand-desc-worrylabel">
-                    {worry}
-                  </p>
-                </div>
-              ))}
-            </div>
-          )}
-
-          <div className="magicwand-desc-inputwrap">
-            <p className="magicwand-desc-inputlabel">
-              그렇다면 현재 무엇을 가장 하고 싶은가요?
-            </p>
-            <textarea
-              value={input}
-              onChange={(e) => setInput(e.target.value)}
-              maxLength={1000}
-              placeholder="내용 입력하기"
-              className="magicwand-desc-textarea"
-              style={{ boxSizing: "border-box", width: "100%", maxWidth: "100%" }}
-            />
-            <p className="magicwand-desc-count">
-              {input.length}/1000
-            </p>
-          </div>
-
-  
-        </div>
-  
-      <div className="magicwand-desc-recommend">
-            ✨ 어떤 행동을 하면 좋을지 추천해드릴까요? ✨
+      <Header
+        title="만약에 질문"
+        onBack={() => navigate(-1)}
+        onMenu={() => setMenuOpen(true)}  // ✅ 이 줄 추가!
+      />
+         {/* 햄버거 메뉴 */}
+        {menuOpen && (
+          <HamburgerMenu
+            open={menuOpen}
+            onClose={() => setMenuOpen(false)}
+            navigate={navigate}
+          />
+        )}
       </div>
-      <div className="button-row" style={{ boxSizing: "border-box", maxWidth: 500, margin: "0 auto", paddingLeft: "1.5rem", paddingRight: "1.5rem" }}>
+      <div className="magicwand-desc-content">
+        <p className="magicwand-desc-title">‘{name}’님의 고민거리</p>
+
+        {worries.length > 0 ? (
+          <p className="magicwand-desc-worries">
+            ‘{worries.join("’, ‘")}’이 사라졌어요.
+          </p>
+        ) : (
+          <p className="magicwand-desc-noworry">
+            선택한 고민거리가 없어요.
+          </p>
+        )}
+
+        {worries.length > 0 && (
+          <div className="magicwand-desc-worrylist">
+            {worries.map((worry) => (
+              <div key={worry} className="magicwand-desc-worryitem">
+                {worryMap[worry] && (
+                  <img
+                    src={worryMap[worry]}
+                    alt={worry}
+                    className="magicwand-desc-worryicon"
+                  />
+                )}
+                <p className="magicwand-desc-worrylabel">{worry}</p>
+              </div>
+            ))}
+          </div>
+        )}
+
+        <div className="magicwand-desc-inputwrap">
+          <p className="magicwand-desc-inputlabel">
+            그렇다면 현재 무엇을 가장 하고 싶은가요?
+          </p>
+          <textarea
+            value={input}
+            onChange={(e) => setInput(e.target.value)}
+            maxLength={1000}
+            placeholder="내용 입력하기"
+            className="magicwand-desc-textarea"
+            style={{ boxSizing: "border-box", width: "100%", maxWidth: "100%" }}
+          />
+          <p className="magicwand-desc-count">{input.length}/1000</p>
+        </div>
+      </div>
+
+      <div className="magicwand-desc-recommend">
+        ✨ 어떤 행동을 하면 좋을지 추천해드릴까요? ✨
+      </div>
+
+      <div
+        className="button-row"
+        style={{
+          boxSizing: "border-box",
+          maxWidth: 500,
+          margin: "0 auto",
+          paddingLeft: "1.5rem",
+          paddingRight: "1.5rem"
+        }}
+      >
         <button
           onClick={() =>
             navigate("/actionadvice", {

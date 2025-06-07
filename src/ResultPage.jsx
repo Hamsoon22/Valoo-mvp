@@ -26,10 +26,15 @@ import "./styles/Header.css";
 
 ChartJS.register(RadialLinearScale, PointElement, LineElement, Filler, Tooltip, Legend);
 
-function Header({ title, setMenuOpen }) {
+function Header({ title, setMenuOpen, onBack }) {
   return (
     <div className="common-header">
-      <div style={{ width: '32px' }}></div>
+      <IconButton size="small" onClick={onBack}>
+        {/* 뒤로가기 아이콘 */}
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M15.41 7.41 14 6l-6 6 6 6 1.41-1.41L10.83 12z" />
+        </svg>
+      </IconButton>
       <div className="common-step-title">{title}</div>
       <IconButton size="small" onClick={() => setMenuOpen(true)}>
         <MenuIcon />
@@ -120,7 +125,7 @@ function ResultPage() {
   return (
     <>
       <div className="common-root">
-        <Header title="내 삶의 방향 찾기" setMenuOpen={setMenuOpen} />
+      <Header title="내 삶의 방향 찾기" setMenuOpen={setMenuOpen} onBack={() => navigate(-1)} />
         <HamburgerMenu open={menuOpen} onClose={() => setMenuOpen(false)} navigate={navigate} />
       </div>
       <div className="result-title-box">

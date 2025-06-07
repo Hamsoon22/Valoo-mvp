@@ -61,8 +61,11 @@ export default function MagicWandPage() {
   return (
     <>
       <div className="common-root">
-        <Header title="만약에 질문" onMenu={() => setMenuOpen(true)} />
-        <HamburgerMenu open={menuOpen} onClose={() => setMenuOpen(false)} navigate={navigate} />
+      <Header
+        title="만약에 질문"
+        onBack={() => navigate(-1)}
+        onMenu={() => setMenuOpen(true)}  // ✅ 이 줄 추가!
+      />
       </div>
       <div className="magicwand-content">
         <p className="magicwand-title">

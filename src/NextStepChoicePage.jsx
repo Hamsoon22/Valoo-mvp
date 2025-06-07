@@ -28,9 +28,13 @@ function NextStepChoicePage() {
       <div className="nextstep-root">
         {/* 상단 헤더 */}
         <div className="nextstep-header">
-          <IconButton onClick={() => navigate("/consent")}> <ArrowBackIosNewIcon fontSize="small" /> </IconButton>
+          <IconButton onClick={() => navigate(-1)}>
+            <ArrowBackIosNewIcon fontSize="small" />
+          </IconButton>
           <div className="nextstep-title">갈림길</div>
-          <IconButton onClick={() => setMenuOpen(true)}><MenuIcon /></IconButton>
+          <IconButton onClick={() => setMenuOpen(true)}>
+            <MenuIcon />
+          </IconButton>
         </div>
 
         {/* 텍스트 */}
