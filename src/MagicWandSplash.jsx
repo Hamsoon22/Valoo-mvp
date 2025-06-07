@@ -21,7 +21,7 @@ export default function MagicWandSplash() {
       <div
         style={{
           width: "100vw",
-          height: "calc(100vh - 64px)",
+          height: "100vh",
           position: "relative",
           overflow: "hidden"
         }}
@@ -33,9 +33,9 @@ export default function MagicWandSplash() {
             position: "absolute",
             top: 0,
             left: 0,
-            width: "100%",
-            height: "100%",
-            objectFit: "contain"
+            width: "100vw",
+            height: "100vh",
+            objectFit: "cover"
           }}
         />
         <div

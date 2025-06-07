@@ -1,0 +1,66 @@
+.reminderimagefinal-root {
+  background-color: #EEDBCB;
+  min-height: 100vh;
+  position: relative;
+  overflow: hidden;
+}
+
+.reminderimagefinal-bg {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  width: 100vw;
+  height: 100vh;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  filter: blur(18px) brightness(0.95);
+  pointer-events: none;
+}
+
+.reminderimagefinal-content {
+  position: relative;
+  z-index: 1;
+  padding: 1.5rem;
+  max-width: 480px;
+  margin: 0 auto;
+  text-align: center;
+  /* 배경과 겹칠 때 가독성 보장 */
+  background: rgba(255,255,255,0.85);
+  border-radius: 1rem;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+}
+
+.reminderimagefinal-title {
+  font-weight: bold;
+  line-height: 1.5;
+  color: #222;
+  text-align: center;
+}
+
+.reminderimagefinal-img-wrap {
+  margin-top: 2rem;
+  display: flex;
+  justify-content: center;
+}
+
+.reminderimagefinal-img {
+  width: 65%;
+  max-width: 300px;
+  height: auto;
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+.reminderimagefinal-download-btn {
+  margin-top: 2rem;
+  padding: 1rem;
+  width: 100%;
+  font-size: 1rem;
+  font-weight: bold;
+  border-radius: 0.75rem;
+  background-color: #000;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+}

@@ -1,0 +1,66 @@
+.actionadvice-root {
+  background-color: #fff;
+  min-height: 100vh;
+}
+
+.actionadvice-content {
+  padding: 0rem 1.5rem 1.5rem 1.5rem;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.actionadvice-desc {
+  font-size: 0.9rem;
+  color: #888;
+  text-align: center;
+}
+
+.actionadvice-title {
+  text-align: center;
+  margin-top: 1.2rem;
+  font-size: 1.1rem;
+  font-weight: bold;
+}
+
+.actionadvice-blue {
+  color: #008BDB;
+  font-weight: bold;
+}
+
+.actionadvice-loading {
+  text-align: center;
+  margin-top: 2rem;
+  color: #999;
+}
+
+.actionadvice-advicebox {
+  margin-top: 1.5rem;
+  padding: 1rem;
+  background-color: #F9FAFB;
+  border-radius: 1rem;
+  border: 1px solid #eee;
+  text-align: center;
+}
+
+.actionadvice-advice {
+  font-weight: bold;
+  font-size: 0.95rem;
+  margin-bottom: 0.5rem;
+}
+
+.actionadvice-btnrow {
+  text-align: center;
+  margin-top: 2rem;
+}
+
+.cta-button {
+  background-color: #00AEEF;
+  color: white;
+  font-weight: bold;
+  font-size: 1.1rem;
+  padding: 1rem;
+  width: 100%;
+  border: none;
+  border-radius: 0.75rem;
+  cursor: pointer;
+}

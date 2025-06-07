@@ -3,6 +3,8 @@ import { useNavigate } from "react-router-dom";
 import img1 from "./assets/onboarding1.png";
 import img2 from "./assets/onboarding2.png";
 import img3 from "./assets/onboarding3.png";
+import "./styles/common.css";
+import "./styles/OnboardingPage.css";
 
 function OnboardingPage() {
   const navigate = useNavigate();
@@ -46,126 +48,50 @@ function OnboardingPage() {
   const skip = () => navigate("/consent");
 
   return (
-    <div
-      style={{
-        height: "100vh",
-        width: "100%",
-        display: "flex",
-        flexDirection: "column",
-        justifyContent: "space-between",
-        alignItems: "center",
-        fontFamily: "sans-serif",
-        padding: "1.5rem",
-        boxSizing: "border-box",
-        overflow: "hidden",
-        backgroundColor: "#fff"
-      }}
-    >
-      {/* SKIP */}
-      <div
-        style={{
-          position: "absolute",
-          top: "1rem",
-          right: "1.5rem",
-          fontSize: "0.9rem",
-          color: "#666",
-          cursor: "pointer"
-        }}
-        onClick={skip}
-      >
-        SKIP &gt;
-      </div>
-
-      {/* 텍스트 */}
-      <div style={{ textAlign: "center", marginTop: "2.5rem" }}>
-        <h2 style={{ fontSize: "1.2rem", color: "#007BC7", marginBottom: "0.8rem" }}>
-          {current.title}
-        </h2>
-        <p style={{ fontSize: "1rem", color: "#333", whiteSpace: "pre-line" }}>
-          {current.subtitle}
-        </p>
-
-        {/* 인디케이터 */}
-        <div style={{ marginTop: "1rem" }}>
-          {onboardingSteps.map((_, i) => (
-            <span
-              key={i}
-              style={{
-                height: 8,
-                width: 8,
-                borderRadius: "50%",
-                backgroundColor: i === step ? "#333" : "#ccc",
-                display: "inline-block",
-                margin: "0 4px"
-              }}
-            />
-          ))}
+    <div style={{position: "relative", width: "100vw", height: "100vh", overflow: "hidden"}}>
+      <img
+        src={current.image}
+        alt="onboarding"
+        className="onboarding-image"
+      />
+      <div className="onboarding-root">
+        {/* SKIP */}
+        <div className="onboarding-skip" onClick={skip}>
+          SKIP &gt;
         </div>
-      </div>
-
-      {/* 이미지 */}
-      <div
-        style={{
-          flex: "1 0 auto",
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center"
-        }}
-      >
-        <img
-          src={current.image}
-          alt="onboarding"
-          style={{
-            width: "100%",
-            maxWidth: "360px",
-            height: "auto",
-            objectFit: "contain"
-          }}
-        />
-      </div>
-
-      {/* 버튼 */}
-      <div
-        style={{
-          display: "flex",
-          justifyContent: step > 0 ? "space-between" : "center",
-          width: "100%",
-          marginBottom: "1rem",
-          gap: "1rem"
-        }}
-      >
-        {step > 0 && (
-          <button
-            onClick={handlePrev}
-            style={{
-              flex: 1,
-              padding: "1rem",
-              fontSize: "1rem",
-              border: "1px solid #007BC7",
-              borderRadius: "12px",
-              backgroundColor: "#fff",
-              color: "#007BC7",
-              cursor: "pointer"
-            }}
-          >
-            이전으로
-          </button>
-        )}
-        <button
-          onClick={handleNext}
-          style={{
-            flex: 1,
-            padding: "1rem",
-            fontSize: "1rem",
-            border: "none",
-            borderRadius: "12px",
-            backgroundColor: "#007BC7",
-            color: "#fff",
-            cursor: "pointer"
-          }}
+        {/* 텍스트 */}
+        <div className="onboarding-text">
+          <h2 className="onboarding-title">{current.title}</h2>
+          <p className="onboarding-subtitle">{current.subtitle}</p>
+          {/* 인디케이터 */}
+          <div className="onboarding-indicator">
+            {onboardingSteps.map((_, i) => (
+              <span
+                key={i}
+                className={`onboarding-dot${i === step ? " active" : ""}`}
+              />
+            ))}
+          </div>
+        </div>
+        {/* 버튼 */}
+        <div
+          className={`button-row${step > 0 ? " has-prev" : " single"}`}
         >
-          {current.buttonText}
-        </button>
+          {step > 0 && (
+            <button
+              onClick={handlePrev}
+              className="cta-button outline"
+            >
+              이전으로
+            </button>
+          )}
+          <button
+            onClick={handleNext}
+            className="cta-button"
+          >
+            {current.buttonText}
+          </button>
+        </div>
       </div>
     </div>
   );

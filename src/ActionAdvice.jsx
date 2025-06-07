@@ -1,7 +1,9 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import Header from "./Header";
 import HamburgerMenu from "./HamburgerMenu";
+import "./styles/ActionAdvice.css";
+import "./styles/Header.css";
 
 export default function ActionAdvice() {
   const location = useLocation();

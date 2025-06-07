@@ -1,8 +1,9 @@
 // ReminderImageFinal.jsx
 import React, { useState } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
-// import Header from "./Header";
+import Header from "./Header";
 import HamburgerMenu from "./HamburgerMenu";
+import "./styles/ReminderImageFinal.css";
 
 // 예시 이미지 매핑: 가치 키워드에 따라 이미지 파일 경로 지정
 import imgFamily from "./assets/reminder/family.jpg";
@@ -51,52 +52,44 @@ export default function ReminderImageFinal() {
   };
 
   return (
-    <div style={{ backgroundColor: "#EEDBCB", minHeight: "100vh" }}>
-      {/* <Header title="리마인드 이미지" setMenuOpen={setMenuOpen} /> */}
-      <HamburgerMenu open={menuOpen} onClose={() => setMenuOpen(false)} navigate={navigate} />
+    <>
+      {/* 배경 이미지 + 블러 */}
+      <div
+        className="reminderimagefinal-bg"
+        style={{
+          backgroundImage: `url(${selectedImage})`
+        }}
+      />
+      <div className="common-root">
+        <Header
+          title="리마인드 이미지"
+          onBack={() => navigate(-1)}
+        />
+        <HamburgerMenu open={menuOpen} onClose={() => setMenuOpen(false)} navigate={navigate} />
 
-      <div style={{ padding: "1.5rem", maxWidth: 480, margin: "0 auto", textAlign: "center" }}>
-        <p style={{ fontWeight: "bold", lineHeight: 1.5 }}>
-          <span style={{ color: "#222" }}>
-            ‘{name}’님의 소중한 방향성과 표현을 담아,
-            <br />
-            간직할 수 있는 리마인드 이미지를 만들었어요.
-          </span>
-        </p>
-
-        <div style={{ marginTop: "2rem", display: "flex", justifyContent: "center" }}>
-          <img
-            src={selectedImage}
-            alt="Reminder"
-            style={{
-              width: "100%",
-              maxWidth: 300,
-              height: "auto",
-              borderRadius: "0.5rem",
-              boxShadow: "0 4px 12px rgba(0,0,0,0.15)"
-            }}
-          />
-        </div>
-
-        <button
-          onClick={downloadImage}
-          style={{
-            marginTop: "2rem",
-            padding: "1rem",
-            width: "100%",
-            maxWidth: 280,
-            fontSize: "1rem",
-            fontWeight: "bold",
-            borderRadius: "0.75rem",
-            backgroundColor: "#000",
-            color: "#fff",
-            border: "none",
-            cursor: "pointer"
-          }}
-        >
-          ⬇ 이미지 다운 받기
-        </button>
+        
+          <p className="reminderimagefinal-title">
+            <span>
+              ‘{name}’님의 소중한 방향성과 표현을 담아,
+              <br />
+              간직할 수 있는 리마인드 이미지를 만들었어요.
+            </span>
+          </p>
+          <div className="reminderimagefinal-img-wrap">
+            <img
+              src={selectedImage}
+              alt="Reminder"
+              className="reminderimagefinal-img"
+            />
+          </div>
+          <button
+            onClick={downloadImage}
+            className="reminderimagefinal-download-btn"
+          >
+            ⬇ 이미지 다운 받기
+          </button>
+      
       </div>
-    </div>
+    </>
   );
 }

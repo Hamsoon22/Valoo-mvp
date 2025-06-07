@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import "./styles/ConsentPage.css";
+import "./styles/common.css";
 
 function ConsentPage() {
   const navigate = useNavigate();
@@ -53,60 +55,44 @@ valoo는 사용자의 감정 및 삶의 방향을 탐색할 수 있도록 돕는
   const isRequiredAgreed = checks.terms;
 
   return (
-    <div style={{ height: "100vh", backgroundColor: "#000", display: "flex", flexDirection: "column", justifyContent: "flex-end" }}>
+    <div className="consent-root">
       {/* 바텀시트 영역 */}
-      <div style={{
-        backgroundColor: "#fff",
-        borderTopLeftRadius: "1rem",
-        borderTopRightRadius: "1rem",
-        padding: "1.5rem",
-        boxSizing: "border-box"
-      }}>
-        <h3 style={{ marginBottom: "0.5rem" }}>약관 동의가 필요합니다.</h3>
-        <p style={{ fontSize: "0.9rem", color: "#555", marginBottom: "1.5rem" }}>
+      <div className="consent-bottomsheet">
+        <h3 className="consent-title">약관 동의가 필요합니다.</h3>
+        <p className="consent-desc">
           선택 항목 동의 없이 이용 가능하나,<br />
           최종 결과물이 제공되지 않을 수 있습니다.
         </p>
 
-        <label style={checkboxStyle}>
+        <label className="consent-checkbox">
           <input type="checkbox" checked={allChecked} onChange={handleAllCheck} />
           <strong style={{ marginLeft: "0.5rem" }}>모두 동의</strong>
         </label>
 
-        <hr />
+        <hr className="consent-hr" />
 
-        <label style={checkboxStyle}>
+        <label className="consent-checkbox">
           <input type="checkbox" checked={checks.terms} onChange={() => toggleCheck("terms")} />
           <span style={{ marginLeft: "0.5rem" }}>(필수) 서비스 이용약관 동의</span>
-          <span style={viewBtn} onClick={() => setModalType("terms")}>보기</span>
+          <span className="consent-view-btn" onClick={() => setModalType("terms")}>보기</span>
         </label>
 
-        <label style={checkboxStyle}>
+        <label className="consent-checkbox">
           <input type="checkbox" checked={checks.privacy} onChange={() => toggleCheck("privacy")} />
           <span style={{ marginLeft: "0.5rem" }}>(선택) 개인정보 처리방침 동의</span>
-          <span style={viewBtn} onClick={() => setModalType("privacy")}>보기</span>
+          <span className="consent-view-btn" onClick={() => setModalType("privacy")}>보기</span>
         </label>
 
-        <label style={checkboxStyle}>
+        <label className="consent-checkbox">
           <input type="checkbox" checked={checks.sensitive} onChange={() => toggleCheck("sensitive")} />
           <span style={{ marginLeft: "0.5rem" }}>(선택) 민감정보 수집 및 이용 동의</span>
-          <span style={viewBtn} onClick={() => setModalType("sensitive")}>보기</span>
+          <span className="consent-view-btn" onClick={() => setModalType("sensitive")}>보기</span>
         </label>
 
         <button
           disabled={!isRequiredAgreed}
-          onClick={() => navigate("/modeselection")}  // ✅ 여기서 navigate 사용 가능
-          style={{
-            marginTop: "2rem",
-            width: "100%",
-            padding: "1rem",
-            backgroundColor: isRequiredAgreed ? "#0097D8" : "#ccc",
-            color: "#fff",
-            border: "none",
-            borderRadius: "12px",
-            fontSize: "1rem",
-            cursor: isRequiredAgreed ? "pointer" : "default"
-          }}
+          onClick={() => navigate("/modeselection")}
+          className={`cta-button${!isRequiredAgreed ? " cta-button--disabled" : ""}`}
         >
           동의완료
         </button>
@@ -114,44 +100,21 @@ valoo는 사용자의 감정 및 삶의 방향을 탐색할 수 있도록 돕는
 
       {/* === 모달 === */}
       {modalType && (
-        <div style={{
-          position: "fixed",
-          top: 0,
-          left: 0,
-          width: "100%",
-          height: "100%",
-          backgroundColor: "#fff",
-          zIndex: 9999,
-          display: "flex",
-          flexDirection: "column"
-        }}>
+        <div className="consent-modal">
           {/* 헤더 */}
-          <div style={{
-            padding: "1rem",
-            borderBottom: "1px solid #eee",
-            display: "flex",
-            justifyContent: "space-between",
-            alignItems: "center"
-          }}>
-            <h3 style={{ margin: 0 }}>
+          <div className="consent-modal-header">
+            <h3 className="consent-modal-title">
               {{
                 terms: "이용약관",
                 privacy: "개인정보 처리방침",
                 sensitive: "민감정보 수집 및 이용 동의"
               }[modalType]}
             </h3>
-            <button onClick={() => setModalType(null)} style={{ fontSize: "1.2rem", background: "none", border: "none" }}>✕</button>
+            <button onClick={() => setModalType(null)} className="consent-modal-close">✕</button>
           </div>
 
           {/* 내용 */}
-          <div style={{
-            padding: "1rem",
-            overflowY: "auto",
-            flex: 1,
-            fontSize: "0.95rem",
-            lineHeight: "1.6",
-            whiteSpace: "pre-wrap"
-          }}>
+          <div className="consent-modal-content">
             {contentMap[modalType]}
           </div>
         </div>
@@ -159,19 +122,5 @@ valoo는 사용자의 감정 및 삶의 방향을 탐색할 수 있도록 돕는
     </div>
   );
 }
-
-const checkboxStyle = {
-  display: "flex",
-  alignItems: "center",
-  justifyContent: "space-between",
-  margin: "1rem 0"
-};
-
-const viewBtn = {
-  fontSize: "0.9rem",
-  color: "#0097D8",
-  marginLeft: "0.5rem",
-  cursor: "pointer"
-};
 
 export default ConsentPage;

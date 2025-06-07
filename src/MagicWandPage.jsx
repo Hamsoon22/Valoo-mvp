@@ -14,6 +14,9 @@ import spiritualityIcon from "./assets/spirituality.png";
 import creationIcon from "./assets/creation.png";
 import environmentIcon from "./assets/environment.png";
 import socialIcon from "./assets/social.png";
+import "./styles/MagicWandPage.css";
+import "./styles/common.css";
+import "./styles/Header.css";
 
 const worries = [
   { key: "economic", label: "경제적 문제", icon: economicIcon },
@@ -56,53 +59,32 @@ export default function MagicWandPage() {
   };
 
   return (
-    <div style={{ backgroundColor: "#fff", minHeight: "100vh" }}>
-      <Header title="만약에 질문" setMenuOpen={setMenuOpen} />
-      <HamburgerMenu open={menuOpen} onClose={() => setMenuOpen(false)} navigate={navigate} />
-      <div style={{ padding: "1.5rem", maxWidth: 500, margin: "0 auto" }}>
-        <p style={{ textAlign: "center" }}>
-          지금 <span style={{ color: "#008BDB", fontWeight: "bold" }}>'{name}'</span>
-          님의 가장 큰 <span style={{ color: "#008BDB", fontWeight: "bold" }}>고민거리</span>는 무엇인가요?
+    <>
+      <div className="common-root">
+        <Header title="만약에 질문" onMenu={() => setMenuOpen(true)} />
+        <HamburgerMenu open={menuOpen} onClose={() => setMenuOpen(false)} navigate={navigate} />
+      </div>
+      <div className="magicwand-content">
+        <p className="magicwand-title">
+          지금 <span className="magicwand-blue">'{name}'</span>
+          님의<br /> 가장 큰 <span className="magicwand-blue">고민거리</span>는 무엇인가요?
         </p>
-        <p style={{ textAlign: "center", fontSize: "0.9rem", color: "#666" }}>
-          최대 2개까지 선택 가능하며 <br />
-          보기에 고민거리가 없다면 자유롭게 적어주세요.
+        <p className="magicwand-desc">
+          최대 2개까지 선택 가능, 직접 입력 가능합니다.<br />
         </p>
-        <div
-          style={{
-            display: "flex",
-            flexWrap: "wrap",
-            gap: "1rem",
-            marginTop: "1rem",
-            justifyContent: "center"
-          }}
-        >
+        <div className="magicwand-worry-list">
           {worries.map((item) => {
             const isSelected = selected.includes(item.key);
             return (
               <button
                 key={item.key}
                 onClick={() => toggleSelect(item.key)}
-                style={{
-                  width: "45%",
-                  aspectRatio: "1 / 1",
-                  border: isSelected ? "2px solid #00AEEF" : "1px solid #ccc",
-                  backgroundColor: isSelected ? "#E6F3FC" : "#fff",
-                  borderRadius: "1rem",
-                  padding: "1rem",
-                  display: "flex",
-                  flexDirection: "column",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  fontWeight: "bold",
-                  color: isSelected ? "#00AEEF" : "#333",
-                  transition: "all 0.2s ease"
-                }}
+                className={`magicwand-worry-btn${isSelected ? " selected" : ""}`}
               >
                 {item.key === "custom" ? (
-                  <AddCircleOutlineIcon fontSize="large" style={{ marginBottom: "0.5rem", color: "#666" }} />
+                  <AddCircleOutlineIcon fontSize="large" className="magicwand-custom-icon" />
                 ) : (
-                  <img src={item.icon} alt="" style={{ width: 40, height: 40, marginBottom: "0.5rem" }} />
+                  <img src={item.icon} alt="" className="magicwand-worry-icon" />
                 )}
                 {item.label}
               </button>
@@ -115,36 +97,21 @@ export default function MagicWandPage() {
             placeholder="고민을 자유롭게 적어주세요"
             value={customInput}
             onChange={(e) => setCustomInput(e.target.value)}
-            style={{
-              marginTop: "1rem",
-              width: "100%",
-              padding: "1rem",
-              borderRadius: "0.75rem",
-              border: "1px solid #ccc",
-              resize: "none",
-              fontFamily: "inherit"
-            }}
+            className="magicwand-textarea"
             rows={3}
           />
         )}
-
+      </div>
+      {/* 하단 여백 추가 */}
+      <div style={{ height: "6rem" }} />
+      <div className="button-row" style={{ boxSizing: "border-box", maxWidth: 500, margin: "0 auto", paddingLeft: "1.5rem", paddingRight: "1.5rem" }}>
         <button
           onClick={handleNext}
-          style={{
-            marginTop: "2rem",
-            width: "100%",
-            padding: "1rem",
-            backgroundColor: "#00AEEF",
-            color: "#fff",
-            fontWeight: "bold",
-            fontSize: "1.1rem",
-            border: "none",
-            borderRadius: "0.75rem"
-          }}
+          className="cta-button"
         >
           다음으로
         </button>
       </div>
-    </div>
+    </>
   );
 }

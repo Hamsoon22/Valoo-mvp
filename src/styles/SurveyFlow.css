@@ -1,0 +1,134 @@
+.survey-title-container {
+  position: sticky;
+  top: 56px;
+  z-index: 99;
+  background-color: #fff;
+  max-width: 500px;
+  margin: 0 auto;
+  font-family: sans-serif;
+  box-sizing: border-box;
+}
+
+.survey-title-box {
+  background-color: #f0f9ff;
+  color: #00A3D9;
+  font-weight: bold;
+  text-align: center;
+  border-radius: 16px;
+  padding: 0.8rem 1rem;
+  font-size: 1rem;
+  border: 1px solid #cce9ff;
+  margin-bottom: 0.8rem;
+  margin-top: 1.5rem;
+}
+
+.survey-title-desc {
+  font-size: 0.85rem;
+  color: #90a4ae;
+  text-align: center;
+  line-height: 1.5;
+  margin: 1rem 0 3rem 0;
+}
+
+.survey-question-list {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  padding-left: 0;
+  margin-left: 0;
+  list-style: none;
+}
+
+
+.survey-question-item {
+  border-bottom: 1px solid #eee;
+  padding-bottom: 1rem;
+}
+
+.survey-question-item.last {
+  margin-bottom: 5rem;
+}
+
+.survey-question-label {
+  margin-bottom: 0.5rem;
+  font-weight: 700;
+  color: #000;
+}
+.survey-question-label.disabled {
+  color: #999;
+}
+
+.survey-question-disabled {
+  font-style: italic;
+  color: #aaa;
+}
+
+.survey-question-range-labels {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.75rem;
+  color: #888;
+}
+
+.survey-slider-bar-wrap {
+  position: relative;
+  height: 20px;
+  margin: 1rem 0;
+}
+.survey-slider-bar {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 100%;
+  height: 8px;
+  background-color: #eee;
+  border-radius: 4px;
+  transform: translateY(-50%);
+  z-index: 1;
+}
+.survey-slider-fill {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  height: 8px;
+  background-color: #1292EE;
+  border-radius: 4px;
+  transform: translateY(-50%);
+  z-index: 2;
+  transition: width 0.3s;
+}
+
+.survey-radio-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 0.2rem;
+}
+
+.survey-radio-label {
+  position: relative;
+}
+
+.survey-score-badge {
+  position: absolute;
+  top: -30px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #1292EE;
+  color: #fff;
+  padding: 0.2rem 0.5rem;
+  border-radius: 8px;
+  font-size: 0.75rem;
+  z-index: 3;
+}
+
+.survey-radio-input {
+  margin: 0 4px;
+}
+
+.survey-question-importance {
+  margin-top: 0.5rem;
+  color: #90a4ae;
+  font-size: 0.85rem;
+}
+
+

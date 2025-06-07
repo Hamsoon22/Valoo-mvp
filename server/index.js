@@ -1,7 +1,7 @@
 import express from "express";
 import cors from "cors";
 import dotenv from "dotenv";
-import fetch, { Headers } from "node-fetch";
+import fetch, { Headers } from "node-fetch"; // ✔️ Headers도 같이 import
 import { OpenAI } from "openai";
 
 dotenv.config();

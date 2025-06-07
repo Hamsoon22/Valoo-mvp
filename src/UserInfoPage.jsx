@@ -14,7 +14,7 @@ function UserInfoPage() {
   };
 
   return (
-    <div style={{ padding: "2rem" }}>
+    <div>
       <h2>UserInfo</h2>
       <p>This is the User information.</p>
       <div style={{ marginTop: "2rem" }}>
